@@ -1,0 +1,40 @@
+﻿@model IEnumerable<projectA.food>
+
+@{
+    ViewBag.Title = "Foods";
+    Layout = "~/Views/Shared/Admin/adminlayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-bordered table-hover table-striped table-responsive" id="food">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.food_name)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.food_name)
+                </td>
+
+                <td class="text-center">
+                    <a class="btn btn-icon-toggle btn-primary btn-xs " data-toggle="tooltip" data-placement="top" data-original-title="Edit" href="@Url.Action("Edit", "foods", new { id = @item.food_id })"><i class="glyphicon  glyphicon-edit "></i></a>|
+                    <a class="btn btn-icon-toggle btn-primary btn-xs " style="color:red" data-toggle="tooltip" data-placement="top" data-original-title="Delete" href="@Url.Action("Delete", "foods", new { id =@item.food_id })"><i class="glyphicon  glyphicon-trash"></i></a>|
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts{
+    <script>$(document).ready(function () { $("#food").DataTable() })</script>
+}

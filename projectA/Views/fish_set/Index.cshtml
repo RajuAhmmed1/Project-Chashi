@@ -1,0 +1,80 @@
+﻿@model IEnumerable<projectA.Models.fish_set_viewmodel>
+
+@{
+    ViewBag.Title = "Set Fish";
+    Layout = "~/Views/Shared/Admin/adminlayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-bordered table-hover table-striped table-responsive" id="fishset">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fish_setvm.pond_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fish_setvm.fish_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fish_setvm.fish_contributore_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fish_setvm.fish_quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fish_setvm.fish_weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fish_setvm.fish_price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fish_setvm.date)
+            </th>
+
+
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pondvm.pond_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fishvm.fish_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fish_setvm.fish_contributore_name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.fish_setvm.fish_quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fish_setvm.fish_weight)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.fish_setvm.fish_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fish_setvm.date)
+            </td>
+
+            <td class="text-center">
+                <a class="btn btn-icon-toggle btn-primary btn-xs " data-toggle="tooltip" data-placement="top" data-original-title="Edit" href="@Url.Action("Edit", "fish_set", new { id = @item.fish_setvm.fish_set_id })"><i class="glyphicon  glyphicon-edit "></i></a>|
+                <a class="btn btn-icon-toggle btn-primary btn-xs " style="color:red" data-toggle="tooltip" data-placement="top" data-original-title="Delete" href="@Url.Action("Delete", "fish_set", new { id =@item.fish_setvm.fish_set_id })"><i class="glyphicon  glyphicon-trash"></i></a>|
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+@section scripts{
+    <script>$(document).ready(function () { $("#fishset").DataTable() })</script>
+}

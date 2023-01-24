@@ -1,0 +1,338 @@
+﻿@using System.Web.Optimization
+@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="~/assets/img/favicon/favicon.ico" type="image/ico" />
+
+    <title>CHASHI! | The way to success </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/datatables/css/datatables.bootstrap.css" rel="stylesheet" />
+    <link href="~/assets/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/assets/css/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/assets/css/green.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="~/assets/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="~/assets/css/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="~/assets/css/daterangepicker.css" rel="stylesheet">
+    <!-- Select 2 -->
+    <link href="~/assets/css/select2.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="~/assets/css/custom.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" language="JavaScript"></script>
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        form#logoutForm {
+            margin: 0px 0px 0px;
+        }
+
+        li#jj:hover a {
+            background-color: #F5F5F5;
+            width: 100%;
+            cursor: pointer
+        }
+
+        li#jj {
+            width: 220px;
+        }
+
+            li#jj a {
+                display: block;
+                width: 220px;
+                cursor: pointer
+            }
+    </style>
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+
+                        <a href="@Url.Action("Index","Home")" class="site_title"><i class="fa fa-paw"></i> <span>CHASHI ! </span></a>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <img src="~/assets/img/img.jpg" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome</span>
+                            <h2>@HttpContext.Current.User.Identity.Name.Split('@').First()</h2>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>General</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a href="@Url.Action("Index","Admin")">
+                                        <i class="fa fa-home"></i>
+                                        Home
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a><i class="glyphicon glyphicon-cog"> </i> General Setting <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>
+                                            @Html.ActionLink("Pond", "Index", "ponds")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Fish", "Index", "fish")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Food", "Index", "foods")
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-info-circle"></i> Informations <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>
+                                            @Html.ActionLink("Fish Set", "Index", "fish_set")
+                                        </li>
+
+                                        <li>
+                                            @Html.ActionLink("Food details", "Index", "fish_food")
+                                        </li>
+
+                                        <li>
+                                            @Html.ActionLink("Sell", "Index", "sells")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Pond Details", "Index", "Pond_detail")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Additional Cost", "Index", "Additional_cost")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Total Cost", "Index", "total_cost")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Result", "Index", "results")
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="fa fa-cogs" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="fa fa-arrows-alt" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="fa fa-eye-slash" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                            <span class="fa fa-sign-in" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="assets/img/img.jpg" alt="">
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        @User.Identity.Name
+                                    }
+                                    <span class=" fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="javascript:;"> Profile</a></li>
+                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <li id="jj"><a href="javascript:document.getElementById('logoutForm').submit()"> Log Out</a></li>
+                                    }
+                                </ul>
+                            </li>
+
+                            @*<li role="presentation" class="dropdown">
+                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <span class="badge bg-green">6</span>
+                                </a>
+                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="assets/img/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="assets/img/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="assets/img/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="assets/img/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="text-center">
+                                            <a>
+                                                <strong>See All Alerts</strong>
+                                                <i class="fa fa-angle-right"></i>
+                                            </a>
+                                        </div>
+                                    </li>*@
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+            <!-- /top navigation -->
+            <div class="right_col" role="main">
+                <!-- top tiles -->
+                <div class="row tile_count">
+                    @RenderBody();
+                </div>
+                <!-- /top tiles -->
+
+
+            </div>
+
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+    @*@Scripts.Render("~/assets/admin/js")*@
+
+    <!-- jQuery -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/assets/js/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="~/assets/js/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="~/assets/js/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="~/assets/js/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="~/assets/js/bootstrap-progressbar.min.js"></script>
+    <!-- select2 -->
+    <script src="~/assets/js/select2.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/assets/js/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="~/assets/js/skycons.js"></script>
+    <!-- Flot -->
+    <script src="~/assets/js/jquery.flot.js"></script>
+    <script src="~/assets/js/jquery.flot.pie.js"></script>
+    <script src="~/assets/js/jquery.flot.time.js"></script>
+    <script src="~/assets/js/jquery.flot.stack.js"></script>
+    <script src="~/assets/js/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="~/assets/js/jquery.flot.orderBars.js"></script>
+    <script src="~/assets/js/jquery.flot.spline.min.js"></script>
+    <script src="~/assets/js/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="~/assets/js/date.js"></script>
+    <!-- JQVMap -->
+    <script src="~/assets/js/jquery.vmap.js"></script>
+    <script src="~/assets/js/jquery.vmap.world.js"></script>
+    <script src="~/assets/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="~/assets/js/moment.min.js"></script>
+    <script src="~/assets/js/daterangepicker.js"></script>
+    <script src="~/Scripts/init.js" type="text/javascript"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="~/assets/js/custom.min.js"></script>
+    <!-- Silkcity Js -->
+    <script src="~/assets/js/silkcity.js"></script>
+    @Scripts.Render("~/bundles/lib")
+
+</body>
+</html>

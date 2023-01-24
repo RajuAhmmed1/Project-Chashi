@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProjectBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="additional_cost">
+          <Key>
+            <PropertyRef Name="addi_cost_id" />
+          </Key>
+          <Property Name="addi_cost_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pond_id" Type="int" />
+          <Property Name="additional_cost_p" Type="float" />
+          <Property Name="additional_cost_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="date" Type="date" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fish">
+          <Key>
+            <PropertyRef Name="fhis_id" />
+          </Key>
+          <Property Name="fhis_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fish_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="fish_food">
+          <Key>
+            <PropertyRef Name="fish_food_id" />
+          </Key>
+          <Property Name="fish_food_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="food_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="food_price" Type="float" />
+          <Property Name="food_quantity" Type="int" />
+          <Property Name="food_company_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="pond_id" Type="int" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="date" Type="date" />
+          <Property Name="food_id" Type="int" />
+        </EntityType>
+        <EntityType Name="fish_set">
+          <Key>
+            <PropertyRef Name="fish_set_id" />
+          </Key>
+          <Property Name="fish_set_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pond_id" Type="int" />
+          <Property Name="fish_id" Type="int" />
+          <Property Name="fish_quantity" Type="int" />
+          <Property Name="fish_contributore_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="fish_price" Type="float" />
+          <Property Name="date" Type="date" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="fish_weight" Type="float" />
+        </EntityType>
+        <EntityType Name="food">
+          <Key>
+            <PropertyRef Name="food_id" />
+          </Key>
+          <Property Name="food_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="food_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="pond">
+          <Key>
+            <PropertyRef Name="pond_id" />
+          </Key>
+          <Property Name="pond_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pond_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="pond_size" Type="nvarchar" MaxLength="50" />
+          <Property Name="pond_location" Type="nvarchar" MaxLength="50" />
+          <Property Name="date" Type="date" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="pond_detail">
+          <Key>
+            <PropertyRef Name="pond_details_id" />
+          </Key>
+          <Property Name="pond_details_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pond_id" Type="int" />
+          <Property Name="total_set_fish" Type="float" />
+          <Property Name="total_sell_fish" Type="float" />
+          <Property Name="total_avail_fish" Type="float" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="result">
+          <Key>
+            <PropertyRef Name="final_result_id" />
+          </Key>
+          <Property Name="final_result_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pond_id" Type="int" />
+          <Property Name="total_cost" Type="float" />
+          <Property Name="total_sell" Type="float" />
+          <Property Name="profit_amount" Type="float" />
+          <Property Name="lose_amount" Type="float" />
+          <Property Name="date" Type="date" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sell">
+          <Key>
+            <PropertyRef Name="sell_id" />
+          </Key>
+          <Property Name="sell_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pond_id" Type="int" />
+          <Property Name="fish_id" Type="int" />
+          <Property Name="client_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="sell_location" Type="nvarchar" MaxLength="50" />
+          <Property Name="fish_quantity" Type="int" />
+          <Property Name="fish_weight" Type="float" />
+          <Property Name="fish_price" Type="float" />
+          <Property Name="date" Type="date" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="total_cost">
+          <Key>
+            <PropertyRef Name="total_cost_id" />
+          </Key>
+          <Property Name="total_cost_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pond_id" Type="int" />
+          <Property Name="total_fish_cost" Type="float" />
+          <Property Name="total_food_cost" Type="float" />
+          <Property Name="total_additional_cost" Type="float" />
+          <Property Name="total_cost_p" Type="float" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjectBModelStoreContainer">
+          <EntitySet Name="additional_cost" EntityType="Self.additional_cost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fish" EntityType="Self.fish" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fish_food" EntityType="Self.fish_food" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fish_set" EntityType="Self.fish_set" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="food" EntityType="Self.food" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pond" EntityType="Self.pond" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pond_detail" EntityType="Self.pond_detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="result" EntityType="Self.result" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sell" EntityType="Self.sell" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="total_cost" EntityType="Self.total_cost" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjectBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ProjectBEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="ponds" EntityType="ProjectBModel.pond" />
+          <EntitySet Name="AspNetRoles" EntityType="ProjectBModel.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="ProjectBModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="ProjectBModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="ProjectBModel.AspNetUser" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="ProjectBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="ProjectBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="ProjectBModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="fish" EntityType="ProjectBModel.fish" />
+          <EntitySet Name="fish_set" EntityType="ProjectBModel.fish_set" />
+          <EntitySet Name="foods" EntityType="ProjectBModel.food" />
+          <EntitySet Name="sells" EntityType="ProjectBModel.sell" />
+          <EntitySet Name="fish_food" EntityType="ProjectBModel.fish_food" />
+          <EntitySet Name="additional_cost" EntityType="ProjectBModel.additional_cost" />
+          <EntitySet Name="total_cost" EntityType="ProjectBModel.total_cost" />
+          <EntitySet Name="pond_detail" EntityType="ProjectBModel.pond_detail" />
+          <EntitySet Name="results" EntityType="ProjectBModel.result" />
+        </EntityContainer>
+        <EntityType Name="pond">
+          <Key>
+            <PropertyRef Name="pond_id" />
+          </Key>
+          <Property Name="pond_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pond_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pond_size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pond_location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="ProjectBModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="ProjectBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="ProjectBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="ProjectBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="ProjectBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="AspNetRoles" Relationship="ProjectBModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="ProjectBModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ProjectBModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="ProjectBModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ProjectBModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="ProjectBModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="ProjectBModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityType Name="fish">
+          <Key>
+            <PropertyRef Name="fhis_id" />
+          </Key>
+          <Property Name="fhis_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fish_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="fish_set">
+          <Key>
+            <PropertyRef Name="fish_set_id" />
+          </Key>
+          <Property Name="fish_set_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pond_id" Type="Int32" />
+          <Property Name="fish_id" Type="Int32" />
+          <Property Name="fish_quantity" Type="Int32" />
+          <Property Name="fish_contributore_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fish_price" Type="Double" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fish_weight" Type="Double" />
+        </EntityType>
+        <EntityType Name="food">
+          <Key>
+            <PropertyRef Name="food_id" />
+          </Key>
+          <Property Name="food_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="food_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sell">
+          <Key>
+            <PropertyRef Name="sell_id" />
+          </Key>
+          <Property Name="sell_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pond_id" Type="Int32" />
+          <Property Name="fish_id" Type="Int32" />
+          <Property Name="client_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sell_location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fish_quantity" Type="Int32" />
+          <Property Name="fish_weight" Type="Double" />
+          <Property Name="fish_price" Type="Double" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="fish_food">
+          <Key>
+            <PropertyRef Name="fish_food_id" />
+          </Key>
+          <Property Name="fish_food_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="food_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="food_price" Type="Double" />
+          <Property Name="food_quantity" Type="Int32" />
+          <Property Name="food_company_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pond_id" Type="Int32" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="food_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="additional_cost">
+          <Key>
+            <PropertyRef Name="addi_cost_id" />
+          </Key>
+          <Property Name="addi_cost_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pond_id" Type="Int32" />
+          <Property Name="additional_cost_p" Type="Double" />
+          <Property Name="additional_cost_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="total_cost">
+          <Key>
+            <PropertyRef Name="total_cost_id" />
+          </Key>
+          <Property Name="total_cost_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pond_id" Type="Int32" />
+          <Property Name="total_fish_cost" Type="Double" />
+          <Property Name="total_food_cost" Type="Double" />
+          <Property Name="total_additional_cost" Type="Double" />
+          <Property Name="total_cost_p" Type="Double" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="pond_detail">
+          <Key>
+            <PropertyRef Name="pond_details_id" />
+          </Key>
+          <Property Name="pond_details_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pond_id" Type="Int32" />
+          <Property Name="total_set_fish" Type="Double" />
+          <Property Name="total_sell_fish" Type="Double" />
+          <Property Name="total_avail_fish" Type="Double" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="result">
+          <Key>
+            <PropertyRef Name="final_result_id" />
+          </Key>
+          <Property Name="final_result_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pond_id" Type="Int32" />
+          <Property Name="total_cost" Type="Double" />
+          <Property Name="total_sell" Type="Double" />
+          <Property Name="profit_amount" Type="Double" />
+          <Property Name="lose_amount" Type="Double" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjectBModelStoreContainer" CdmEntityContainer="ProjectBEntities" >
+          <EntitySetMapping Name="ponds">
+            <EntityTypeMapping TypeName="ProjectBModel.pond">
+              <MappingFragment StoreEntitySet="pond">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="pond_location" ColumnName="pond_location" />
+                <ScalarProperty Name="pond_size" ColumnName="pond_size" />
+                <ScalarProperty Name="pond_name" ColumnName="pond_name" />
+                <ScalarProperty Name="pond_id" ColumnName="pond_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="ProjectBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="ProjectBModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="ProjectBModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="ProjectBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="ProjectBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="fish">
+            <EntityTypeMapping TypeName="ProjectBModel.fish">
+              <MappingFragment StoreEntitySet="fish">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="fish_name" ColumnName="fish_name" />
+                <ScalarProperty Name="fhis_id" ColumnName="fhis_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fish_set">
+            <EntityTypeMapping TypeName="ProjectBModel.fish_set">
+              <MappingFragment StoreEntitySet="fish_set">
+                <ScalarProperty Name="fish_weight" ColumnName="fish_weight" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="fish_price" ColumnName="fish_price" />
+                <ScalarProperty Name="fish_contributore_name" ColumnName="fish_contributore_name" />
+                <ScalarProperty Name="fish_quantity" ColumnName="fish_quantity" />
+                <ScalarProperty Name="fish_id" ColumnName="fish_id" />
+                <ScalarProperty Name="pond_id" ColumnName="pond_id" />
+                <ScalarProperty Name="fish_set_id" ColumnName="fish_set_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="foods">
+            <EntityTypeMapping TypeName="ProjectBModel.food">
+              <MappingFragment StoreEntitySet="food">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="food_name" ColumnName="food_name" />
+                <ScalarProperty Name="food_id" ColumnName="food_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sells">
+            <EntityTypeMapping TypeName="ProjectBModel.sell">
+              <MappingFragment StoreEntitySet="sell">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="fish_price" ColumnName="fish_price" />
+                <ScalarProperty Name="fish_weight" ColumnName="fish_weight" />
+                <ScalarProperty Name="fish_quantity" ColumnName="fish_quantity" />
+                <ScalarProperty Name="sell_location" ColumnName="sell_location" />
+                <ScalarProperty Name="client_name" ColumnName="client_name" />
+                <ScalarProperty Name="fish_id" ColumnName="fish_id" />
+                <ScalarProperty Name="pond_id" ColumnName="pond_id" />
+                <ScalarProperty Name="sell_id" ColumnName="sell_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fish_food">
+            <EntityTypeMapping TypeName="ProjectBModel.fish_food">
+              <MappingFragment StoreEntitySet="fish_food">
+                <ScalarProperty Name="food_id" ColumnName="food_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="pond_id" ColumnName="pond_id" />
+                <ScalarProperty Name="food_company_name" ColumnName="food_company_name" />
+                <ScalarProperty Name="food_quantity" ColumnName="food_quantity" />
+                <ScalarProperty Name="food_price" ColumnName="food_price" />
+                <ScalarProperty Name="food_name" ColumnName="food_name" />
+                <ScalarProperty Name="fish_food_id" ColumnName="fish_food_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="additional_cost">
+            <EntityTypeMapping TypeName="ProjectBModel.additional_cost">
+              <MappingFragment StoreEntitySet="additional_cost">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="additional_cost_name" ColumnName="additional_cost_name" />
+                <ScalarProperty Name="additional_cost_p" ColumnName="additional_cost_p" />
+                <ScalarProperty Name="pond_id" ColumnName="pond_id" />
+                <ScalarProperty Name="addi_cost_id" ColumnName="addi_cost_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="total_cost">
+            <EntityTypeMapping TypeName="ProjectBModel.total_cost">
+              <MappingFragment StoreEntitySet="total_cost">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="total_cost_p" ColumnName="total_cost_p" />
+                <ScalarProperty Name="total_additional_cost" ColumnName="total_additional_cost" />
+                <ScalarProperty Name="total_food_cost" ColumnName="total_food_cost" />
+                <ScalarProperty Name="total_fish_cost" ColumnName="total_fish_cost" />
+                <ScalarProperty Name="pond_id" ColumnName="pond_id" />
+                <ScalarProperty Name="total_cost_id" ColumnName="total_cost_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pond_detail">
+            <EntityTypeMapping TypeName="ProjectBModel.pond_detail">
+              <MappingFragment StoreEntitySet="pond_detail">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="total_avail_fish" ColumnName="total_avail_fish" />
+                <ScalarProperty Name="total_sell_fish" ColumnName="total_sell_fish" />
+                <ScalarProperty Name="total_set_fish" ColumnName="total_set_fish" />
+                <ScalarProperty Name="pond_id" ColumnName="pond_id" />
+                <ScalarProperty Name="pond_details_id" ColumnName="pond_details_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="results">
+            <EntityTypeMapping TypeName="ProjectBModel.result">
+              <MappingFragment StoreEntitySet="result">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="lose_amount" ColumnName="lose_amount" />
+                <ScalarProperty Name="profit_amount" ColumnName="profit_amount" />
+                <ScalarProperty Name="total_sell" ColumnName="total_sell" />
+                <ScalarProperty Name="total_cost" ColumnName="total_cost" />
+                <ScalarProperty Name="pond_id" ColumnName="pond_id" />
+                <ScalarProperty Name="final_result_id" ColumnName="final_result_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

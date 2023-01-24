@@ -1,0 +1,81 @@
+﻿@model IEnumerable<projectA.pond>
+
+@{
+    ViewBag.Title = "Ponds";
+    Layout = "~/Views/Shared/Admin/adminlayout.cshtml";
+}
+
+<h2>Ponds</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-bordered table-hover table-striped table-responsive" id="pond">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.pond_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pond_size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pond_location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pond_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pond_size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pond_location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.date)
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-icon-toggle btn-primary btn-xs " data-toggle="tooltip" data-placement="top" data-original-title="Edit" href="@Url.Action("Edit", "ponds", new { id = @item.pond_id})"><i class="glyphicon  glyphicon-edit "></i></a>|
+                    <a class="btn btn-icon-toggle btn-primary btn-xs " data-pond-id=@item.pond_id style="color:red" data-toggle="tooltip" data-placement="top" data-original-title="Delete"><i class="glyphicon  glyphicon-trash"></i></a>|
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts{
+    <script>$(document).ready(function () {
+            $("#pond").DataTable()
+ $("#pond").on("click", ".alert_warning", function () {
+            var button = $(this);
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this imaginary file!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false
+            }, function () {
+                $.ajax({
+                    url: "/ponds/delete/" + button.attr("data-pond-id"),
+                    method: "DELETE",
+                    success: function () {
+                        table.row(button.parents("tr")).remove().draw();
+                    }
+                });
+                swal("Deleted!", "Your imaginary file has been deleted.", "success");
+            });
+        });   })
+
+    </script>
+}

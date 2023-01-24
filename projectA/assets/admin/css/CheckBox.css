@@ -1,0 +1,454 @@
+﻿/**
+ * Checkboxes
+ */
+.checkbox {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+    .checkbox > input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+    }
+
+.checkbox__icon {
+    display: inline-block;
+    /* Default State */
+    color: #999;
+    /* Active State */
+}
+
+input[type="checkbox"]:checked ~ .checkbox__icon {
+    color: #0fc5bb;
+}
+
+/* IE6-8 Fallback */
+@media \0screen\,screen\9 {
+    .checkbox__icon {
+        display: none;
+    }
+
+    .checkbox > input[type="checkbox"] {
+        position: static;
+    }
+}
+/****************************
+ ****************************
+ ****************************
+ * Helpers
+ */
+.checkbox__icon:before {
+    font-family: "icons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon--check:before, input[type="checkbox"]:checked ~ .checkbox__icon:before {
+    content: "\e601";
+}
+
+.icon--check-empty:before, .checkbox__icon:before {
+    content: "\e600";
+    font-size: 22px;
+    top: 4px;
+    margin-top: 28px;
+    position: relative;
+    margin-left: 6px;
+}
+
+@font-face {
+    font-family: "icons";
+    font-weight: normal;
+    font-style: normal;
+    src: url("data:application/x-font-woff;charset=utf-8;base64,d09GRk9UVE8AAAR4AAoAAAAABDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABDRkYgAAAA9AAAAPgAAAD4fZUAVE9TLzIAAAHsAAAAYAAAAGAIIvy3Y21hcAAAAkwAAABMAAAATBpVzFhnYXNwAAACmAAAAAgAAAAIAAAAEGhlYWQAAAKgAAAANgAAADYAeswzaGhlYQAAAtgAAAAkAAAAJAPiAedobXR4AAAC/AAAABgAAAAYBQAAAG1heHAAAAMUAAAABgAAAAYABlAAbmFtZQAAAxwAAAE5AAABOUQYtNZwb3N0AAAEWAAAACAAAAAgAAMAAAEABAQAAQEBCGljb21vb24AAQIAAQA6+BwC+BsD+BgEHgoAGVP/i4seCgAZU/+LiwwHi2v4lPh0BR0AAAB8Dx0AAACBER0AAAAJHQAAAO8SAAcBAQgPERMWGyBpY29tb29uaWNvbW9vbnUwdTF1MjB1RTYwMHVFNjAxAAACAYkABAAGAQEEBwoNL2X8lA78lA78lA77lA6L+HQVi/yU+JSLi/iU/JSLBd83Fffsi4v77Pvsi4v37AUOi/h0FYv8lPiUi4v33zc3i/s3++yLi/fs9zeL398F9wCFFftN+05JzUdI9xr7GveR95FHzwUO+JQU+JQViwwKAAMCAAGQAAUAAAFMAWYAAABHAUwBZgAAAPUAGQCEAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAA5gEB4P/g/+AB4AAgAAAAAQAAAAAAAAAAAAAAIAAAAAAAAgAAAAMAAAAUAAMAAQAAABQABAA4AAAACgAIAAIAAgABACDmAf/9//8AAAAAACDmAP/9//8AAf/jGgQAAwABAAAAAAAAAAAAAAABAAH//wAPAAEAAAAAAACkYCfgXw889QALAgAAAAAAz65FuwAAAADPrkW7AAD/4AIAAeAAAAAIAAIAAAAAAAAAAQAAAeD/4AAAAgAAAAAAAgAAAQAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAABAAAAAgAAAAIAAAAAAFAAAAYAAAAAAA4ArgABAAAAAAABAA4AAAABAAAAAAACAA4ARwABAAAAAAADAA4AJAABAAAAAAAEAA4AVQABAAAAAAAFABYADgABAAAAAAAGAAcAMgABAAAAAAAKACgAYwADAAEECQABAA4AAAADAAEECQACAA4ARwADAAEECQADAA4AJAADAAEECQAEAA4AVQADAAEECQAFABYADgADAAEECQAGAA4AOQADAAEECQAKACgAYwBpAGMAbwBtAG8AbwBuAFYAZQByAHMAaQBvAG4AIAAxAC4AMABpAGMAbwBtAG8AbwBuaWNvbW9vbgBpAGMAbwBtAG8AbwBuAFIAZQBnAHUAbABhAHIAaQBjAG8AbQBvAG8AbgBHAGUAbgBlAHIAYQB0AGUAZAAgAGIAeQAgAEkAYwBvAE0AbwBvAG4AAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==") format("woff");
+}
+
+
+.checkbox_form .form-group{
+    height:auto
+}
+
+.form-heading {
+    text-align: center;
+}
+
+.admission_form {
+    width: 70%;
+    margin: 0 auto
+}
+
+.admission_form_area {
+    padding-bottom: 70px
+}
+
+.form-body form .main_form_body {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+.form-body form .main_form_body {
+    position: relative;
+    z-index:11
+}
+#transcript {
+    display: none;
+}
+
+    #transcript.visible {
+        display: block;
+    }
+
+#trxshow {
+    text-align: right;
+}
+.form-heading-banner img {
+    width: 75px;
+    margin-right: 20px;
+}
+
+.form-heading-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.form-inn-text p {
+    display: inline-block;
+    margin: 0 10px;
+    color: #3E3170
+}
+
+.form-heading-banner h2 {
+    font-size: 24px;
+    color: #3E3170;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.form-ad-contact {
+    margin: 0;
+}
+
+    .form-ad-contact p {
+        display: inline-block;
+        margin: 0 10px;
+        color: #3E3170
+    }
+
+.form-inn-text-one p {
+    color: #3E3170
+}
+
+.form-inn-text-one {
+    margin-top: -20px;
+}
+
+.form-heading-two {
+    border-top: 1px solid #3E3170;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.form-heading-two {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.heading-two-left {
+    width: 70%;
+    padding-right:24%
+}
+
+.heading-two-right {
+    width: 30%;
+    float: right;
+}
+
+    .heading-two-right .image-view {
+        width: 125px;
+        float: right;
+        margin: 0
+    }
+
+    .heading-two-right input[type=file]:before {
+        content: 'Upload Photo'
+    }
+
+.heading-two-left h4 {
+    font-size: 16px;
+    color: #111;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: left;
+    border: 1px solid #0fc5bb;
+    display: inline-block;
+    padding: 5px 15px;
+    margin-bottom: 10px;
+}
+    .heading-two-left h4 input{
+        border:medium none;
+        padding:0;
+        background:transparent
+    }
+
+    .heading-two-left h4 span {
+        margin-right: 10px
+    }
+
+.sty_heading{
+    margin-bottom:30px
+}
+.sty_heading h4 {
+    background: #0fc5bb;
+    color: #fff;
+    text-align: center;
+    padding: 10px 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px
+}
+
+.form-body form label {
+    font-size: 14px
+}
+
+.address_admission {
+    margin-bottom: 20px
+}
+
+    .address_admission textarea {
+        height: 90px
+    }
+
+
+.select2-container--default .select2-selection--single {
+    height: 40px;
+    padding: 5px 0
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 1px solid #ccc
+}
+
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid #ccc;
+    height: 55px !important;
+    background: transparent
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    height: 55px !important;
+    background: transparent
+}
+
+.form-body form .main_form_body input {
+    background: transparent;
+    height: 40px;
+}
+
+.form-body form .main_form_body textarea {
+    background: transparent
+}
+
+.form-body form .main_form_body::after {
+    position: absolute;
+    content: "";
+    top: 44%;
+    left: 29%;
+    background: url(../../../../assets/front_asset/h_logo.png) no-repeat scroll 0 0/cover;
+    width: 470px;
+    height: 470px;
+    opacity: 0.1;
+    z-index:-1
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 15px;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.88);
+    -webkit-animation-duration: 0.35s;
+    animation-duration: 0.35s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    /* Modifiers */
+    /* States */
+}
+
+.modal__dialog {
+    position: relative;
+    max-width: 500px;
+    padding: 20px;
+    margin: auto;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.modal__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0;
+    border: none;
+    color: #ccc;
+    background-color: transparent;
+    background-image: none;
+}
+
+    .modal__close:focus {
+        outline: 0;
+    }
+
+.modal__header {
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.modal__title {
+    margin: 0 0 15px;
+}
+
+.modal__content {
+    padding: 10px 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.modal__footer {
+    padding-top: 20px;
+    border-top: 1px solid #e2e2e2;
+    text-align: right;
+}
+
+.modal--fullscreen {
+    padding: 5px;
+}
+
+    .modal--fullscreen .modal__dialog {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        border-radius: 0;
+    }
+
+.modal.is-modal-active {
+    display: flex;
+}
+/* Animation */
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+/*------------------------------------------------*/
+/* Unrelated styling, not for the typing indicator
+   Only using this for DEMO purposes  */
+/*------------------------------------------------*/
+
+.demo {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.demo__card {
+    max-width: 350px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #e2e2e2;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    color: #444;
+}
+
+.demo__title {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e2e2;
+    font-size: 16px;
+}
+
+.demo__btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    background-color: transparent;
+    transition: all 0.25s linear;
+    margin-bottom: 10px;
+}
+
+    .demo__btn:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .demo__btn:focus,
+    .demo__btn:active {
+        outline: 0;
+    }
+
+.demo__btn--secondary {
+    border: 1px solid #e2e2e2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

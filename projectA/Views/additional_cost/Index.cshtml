@@ -1,0 +1,58 @@
+﻿@model IEnumerable<projectA.Models.fish_set_viewmodel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin/adminlayout.cshtml";
+}
+
+<h2>Additonal Cost</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-bordered table-hover table-striped table-responsive" id="additionalcost">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.addivm.pond_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.addivm.additional_cost_p)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.addivm.additional_cost_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.addivm.date)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pondvm.pond_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.addivm.additional_cost_p)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.addivm.additional_cost_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.addivm.date)
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-icon-toggle btn-primary btn-xs " data-toggle="tooltip" data-placement="top" data-original-title="Edit" href="@Url.Action("Edit", "additional_cost", new { id = @item.addivm.addi_cost_id })"><i class="glyphicon  glyphicon-edit "></i></a>|
+                    @*<a class="btn btn-icon-toggle btn-primary btn-xs " data-toggle="tooltip" data-placement="top" data-original-title="View" href="@Url.Action("Details", "additional_cost", new { id = @item.addivm.addi_cost_id })"><i class="glyphicon  glyphicon-eye-open"></i></a>|*@
+                    <a class="btn btn-icon-toggle btn-primary btn-xs " style="color:red" data-toggle="tooltip" data-placement="top" data-original-title="Delete" href="@Url.Action("Delete", "additional_cost", new { id =@item.addivm.addi_cost_id })"><i class="glyphicon  glyphicon-trash"></i></a>|
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script>$(document).ready(function () { $("#additionalcost").DataTable() })</script>}

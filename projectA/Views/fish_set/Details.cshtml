@@ -1,0 +1,83 @@
+﻿@model projectA.fish_set
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>fish_set</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pond_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pond_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fish_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fish_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fish_quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fish_quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fish_contributore_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fish_contributore_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fish_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fish_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fish_weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fish_weight)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.fish_set_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

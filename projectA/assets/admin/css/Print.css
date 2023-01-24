@@ -1,0 +1,64 @@
+﻿@media print {
+    * {
+        -webkit-print-color-adjust: exact !important; /*Chrome, Safari */
+        color-adjust: exact !important; /*Firefox*/
+    }
+    body {
+        -webkit-print-color-adjust: exact !important;
+    }
+    title {
+        display: none !important
+    }
+
+    .form-group p.print_ppg {
+        border-bottom: 2px dotted #333
+    }
+
+    .sty_heading h4 {
+        background: #0fc5bb !important;
+        color:#fff !important;
+        -webkit-print-color-adjust: exact;
+    }
+    .form-body form .main_form_body::after {
+        position: absolute !important;
+        content: "" !important;
+        top: 44% !important;
+        left: 25% !important;
+        background: url('../../front_asset/h_logo.png') no-repeat scroll 0 0/cover !important;
+        width: 470px !important;
+        height: 470px !important;
+        opacity: 1 !important;
+        z-index: -1 !important;
+        -webkit-print-color-adjust: exact;
+        display:none
+    }
+    img.bg_admission_logo {
+        position: absolute;
+        top: 46%;
+        width: 550px;
+        left: 25%;
+        opacity: 0.1;
+        display:block
+    }
+    .image-action{
+        display:none
+    }
+    .form-group{
+        margin-bottom:10px;
+        height:45px
+    }
+    .form-body form label{
+        font-size:12px;
+        font-weight:500
+    }
+    .address_admission, .form-heading-two {
+        margin-bottom: 10px
+    }
+}
+
+.main_form_body {
+    -webkit-print-color-adjust: exact !important;
+}
+.form-group{
+    height:auto
+}

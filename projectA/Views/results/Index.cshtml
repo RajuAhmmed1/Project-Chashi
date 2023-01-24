@@ -1,0 +1,82 @@
+﻿@model IEnumerable<projectA.Models.fish_set_viewmodel>
+
+@{
+    ViewBag.Title = "Result";
+    Layout = "~/Views/Shared/Admin/adminlayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<table class="table table-bordered table-hover table-striped table-responsive" id="result">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.resultvm.pond_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.resultvm.total_cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.resultvm.total_sell)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.resultvm.profit_amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.resultvm.lose_amount)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.date)
+                </th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pondvm.pond_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.resultvm.total_cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.resultvm.total_sell)
+                </td>
+                @if (item.resultvm.profit_amount < 0)
+                {
+                    item.resultvm.profit_amount = 0;
+                }
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.resultvm.profit_amount)
+                </td>
+                @{ if (item.resultvm.lose_amount > 0)
+                    {
+                        item.resultvm.lose_amount = 0;
+                    }
+                    else
+                    {
+                        item.resultvm.lose_amount *= -1;
+                    }
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.resultvm.lose_amount)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.date)
+                    </td>*@
+
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.resultvm.final_result_id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.resultvm.final_result_id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.resultvm.final_result_id })
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts{
+    <script>$(document).ready(function () { $("#result").DataTable() })</script>
+}

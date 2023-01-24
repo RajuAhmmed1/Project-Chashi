@@ -1,0 +1,459 @@
+﻿<div id="wrapper" class="home-page">
+    <header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@Url.Action("Index")"><i style="color:red" class="fa fa-leaf" aria-hidden="true"></i>CHASHI</a>
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a class="waves-effect waves-dark" href="index.html">Home</a></li>
+                      
+
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                        @using Microsoft.AspNet.Identity
+                        @if (Request.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+
+
+
+                                <li class="dropdown">
+                                    <a style="text-decoration:none;color:white;padding-left:5px;" href="#" data-toggle="dropdown" class="dropdown-toggle waves-effect waves-dark"><i style="color:white;" class="fas fa-user-circle fa-lg"> </i> @User.Identity.Name.Split('@').First() <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="waves-effect waves-dark" href="@Url.Action("index","admin")">dashbord</a></li>
+
+                                        <li>
+                                            @Html.ActionLink("change password", "changepassword", "manage")
+                                        </li>
+                                        <li><a class="aa" style="text-decoration:none;" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                                    </ul>
+                                </li>
+
+
+                            }
+                        }
+                        else
+                        {
+
+
+                            <li><a class="waves-effect waves-dark" href="@Url.Action("login","account")"><i class="fas fa-user-circle fa-lg"> </i> <span style="padding-left:5px;"> Login</span></a></li>
+
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="banner">
+
+        <!-- Slider -->
+        <div id="main-slider" class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="~/chashi/img/slides/1.jpg" alt="jjj" />
+                    <div class="flex-caption">
+                        <!--<h3>Perfection</h3>
+                        <p>Take care of your body</p>-->
+                    </div>
+                </li>
+                <li>
+                    <img src="~/chashi/img/slides/4.jpg" alt="llll" />
+                    <div class="flex-caption">
+                        <!--<h3>Progress</h3>
+                        <p>Enjoy the glow of good health</p>-->
+                    </div>
+                </li>
+                <li>
+                    <img src="~/chashi/img/slides/7.jpg" alt="ooooo" />
+                    <div class="flex-caption">
+                        <!--<h3>Progress</h3>
+                        <p>Enjoy the glow of good health</p>-->
+                    </div>
+                </li>
+                <li>
+                    <img src="~/chashi/img/slides/9.jpg" alt="" />
+                    <div class="flex-caption">
+                        <!--<h3>Progress</h3>
+                        <p>Enjoy the glow of good health</p>-->
+                    </div>
+                </li>
+                <li>
+                    <img src="~/chashi/img/slides/5.jpg" alt="" />
+                    <div class="flex-caption">
+                        <!--<h3>Progress</h3>
+                        <p>Enjoy the glow of good health</p>-->
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- end slider -->
+    </section>
+    <section class="dishes">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aligncenter"><h2 class="aligncenter">Bangladesh Freshwater Fish</h2></div>
+                    <br />
+                </div>
+            </div>
+
+            <div class="row service-v1 margin-bottom-40">
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="card small">
+                        <div class="card-image">
+                            <img class="img-responsive" src="~/chashi/img/rui.jpg" alt="" style="margin-bottom:10px;">
+                            <span style="font-weight:bold;font-size:20px;" class="card-title">Rui</span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                The Rui fish is a species of freshwater fish of the carp family. It is found mainly in rivers in South Asia. It is known by many different names such as rohu, rohit or roho. It is the most important among the 3 Indian major carp fish species used in polyculture systems.
+                            </p>
+                            @*<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
+                                </p>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="card small">
+                        <div class="card-image">
+                            <img class="img-responsive" src="~/chashi/img/katla.jpg" alt="" style="margin-bottom:10px;">
+                            <span style="font-weight:bold;font-size:20px;" class="card-title">Katla</span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                It is known by many different names such as Katla, Katol, Indian Major carp, Chepti, Baudhekra, Bacha, Karakatla and Tambra. The fish is mainly found in the rives and lakes in northern India, Bangladesh, Nepal, Pakistan and Myanmar. The Catla fish is a freshwater species, and it is found rarely in brakish water.
+                            </p>
+                            @*<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
+                                </p>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="card small">
+                        <div class="card-image">
+                            <img class="img-responsive" src="~/chashi/img/silver.jpg" alt="" style="margin-bottom:10px;">
+                            <span style="font-weight:bold;font-size:20px;" class="card-title">Silver</span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                The silver carp is a species of freshwater cyprinid fish, a variety of Asian carp native to China and eastern Siberia. Although a threatened species in its natural habitat, it has long been cultivated in China.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row service-v1 margin-bottom-40">
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="card small">
+                        <div class="card-image">
+                            <img class="img-responsive" src="~/chashi/img/mrigal.png" alt="" style="margin-bottom:10px;">
+                            <span style="font-weight:bold;font-size:20px;" class="card-title">Mrigel</span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                The Mrigal fish is a species of ray-finned fish in the carp family. It is also called Cirrhinus mrigala, Cirrhinus cirrhosus, Morakhi, Moree, White carp and Mrigal carp fish. It is native to streams and rivers of south Asia, especially India.
+
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="card small">
+                        <div class="card-image">
+                            <img class="img-responsive" src="~/chashi/img/tilapia.jpg" alt="" style="margin-bottom:10px;">
+                            <span style="font-weight:bold;font-size:20px;" class="card-title">Tilapia</span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                Tilapia are mainly freshwater fish inhabiting shallow streams, ponds, rivers, and lakes, and less commonly found living in brackish water. Historically, they have been of major importance in artisanal fishing in Africa, and they are of increasing importance in aquaculture and aquaponics.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="card small">
+                        <div class="card-image">
+                            <img class="img-responsive" src="~/chashi/img/pangas.jpg" alt="" style="margin-bottom:10px;">
+                            <span style="font-weight:bold;font-size:20px;" class="card-title">Pangas</span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                Pangasius pangasius, the Pangas catfish, is a species of shark catfish native to fresh and brackish waters of Bangladesh, India, Myanmar, and Pakistan. ... This species is important as a food fish. It is one of only two species of Pangasius native to South Asia, the other being P.
+
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section class="" style="padding: 35px 0;color: #f2f2f2; background-color:#1C1C1C">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aligncenter"><h2 class="aligncenter">fish feed</h2></div>
+                    <br />
+                </div>
+            </div>
+
+            <div class="row service-v1 margin-bottom-40">
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="card small">
+                        <div class="card-image">
+                            <img class="img-responsive" src="~/chashi/img/ricebran.jpg" alt="" style="margin-bottom:10px;">
+                            <span style="font-weight:bold;font-size:20px;" class="card-title">Rice Bran</span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                Rice bran is a component of raw rice that is obtained when it is removed from the starchy endosperm in the rice milling process.
+                            </p>
+                            @*<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
+                                </p>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="card small">
+                        <div class="card-image">
+                            <img class="img-responsive" src="~/chashi/img/soybean.jpg" alt="" style="margin-bottom:10px;">
+                            <span style="font-weight:bold;font-size:20px;" class="card-title">Soybean Meal</span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                Soybean meal is used in food and animal feeds, principally as a protein supplement, but also as a source of metabolizable energy. Typically 1 bushel of soybeans yields 48 lbs. of soybean meal. Some, but not all, soybean meal is produced from the residue left after oil extraction.
+                            </p>
+                            @*<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
+                                </p>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="card small">
+                        <div class="card-image">
+                            <img class="img-responsive" src="~/chashi/img/mustard.jpeg" alt="" style="margin-bottom:10px;">
+                            <span style="font-weight:bold;font-size:20px;" class="card-title">Mustard Oil Cake</span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                Mustard Oil Cake is an extract of Rape/Mustard Seed. This is a by product produced as a result of oil extraction from Mustard/Rape... Being a trustworthy organization of this field, we are putting our best efforts in offering excellent quality Mustard Oil Cake .
+
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+    <section class="dishes">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aligncenter"><h2 class="aligncenter">fish disease</h2></div>
+                    <br />
+                </div>
+            </div>
+
+            <div class="row service-v1 margin-bottom-40">
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="card small">
+                        <div class="card-image">
+                            <img class="img-responsive" src="~/chashi/img/fishd.jpg" alt="" style="margin-bottom:10px;">
+                            <span style="font-weight:bold;font-size:20px;" class="card-title">Ulcer Disease of Fish</span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                In the initial phase of the disease, the fish dies without development of lesions in the skin, but in more protracted cases, it is characterised by skin ulcers that may extend to cover large parts of the body.
+                            </p>
+                            @*<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
+                                </p>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="card small">
+                        <div class="card-image">
+                            <img class="img-responsive" src="~/chashi/img/diseas1.gif" alt="" style="margin-bottom:10px;">
+                            <span style="font-weight:bold;font-size:20px;" class="card-title">Stomach Swelling</span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                Bloating is a feeling that your abdomen is distended or larger than normal, but it does not necessarily mean that it is. Gas (flatulence) also can be a problem if you are bloated. Common, less serious causes of bloating are eating too fast, too much, or too many fatty foods; swallowing air; pregnancy; and menstruation.
+
+                            </p>
+                            @*<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
+                                </p>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="card small">
+                        <div class="card-image">
+                            <img class="img-responsive" src="~/chashi/img/fin.jpeg" alt="" style="margin-bottom:10px;">
+                            <span style="font-weight:bold;font-size:20px;" class="card-title">Tail and Fin Rot</span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                Tail and fin rot disease is a bacterial disease of freshwater fish. ... In the present study, the bacterial isolates collected from eroded tail and fins of affected Indian major carp, catla (Catla catla) and climbing perch, koi.
+
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    @*<section id="content">
+        <div class="container">
+
+            <section class="services">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="aligncenter"><h2 class="aligncenter">What Our Services</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, <br />doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt..</div>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4 info-blocks">
+                        <i class="icon-info-blocks material-icons">track_changes</i>
+                        <div class="info-blocks-in">
+                            <h3>Aerobics</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 info-blocks">
+                        <i class="icon-info-blocks material-icons">settings_input_svideo</i>
+                        <div class="info-blocks-in">
+                            <h3>Cardio</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 info-blocks">
+                        <i class="icon-info-blocks material-icons">queue_music</i>
+                        <div class="info-blocks-in">
+                            <h3>Consulting</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 info-blocks">
+                        <i class="icon-info-blocks material-icons">my_location</i>
+                        <div class="info-blocks-in">
+                            <h3>GYM</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 info-blocks">
+                        <i class="icon-info-blocks material-icons">shuffle</i>
+                        <div class="info-blocks-in">
+                            <h3>SPA Energy</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 info-blocks">
+                        <i class="icon-info-blocks material-icons">tab_unselected</i>
+                        <div class="info-blocks-in">
+                            <h3>Events</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>*@
+
+    <section class="section-padding gray-bg">
+        <div class="container" style="color:white;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title text-center">
+                        <h2>new techonology ( Biofloc system )</h2>
+                        <p>
+                            It is an innovative and cost-effective technology in which toxic materials to the fish and shellfish such as Nitrate, Nitrite, Ammonia can be converted to useful product, ie., proteinaceous feed. It is the technology used in aquaculture system with limited or zero water exchange under high stocking density, strong aeration and biota formed by biofloc.The culture of biofloc will be productive in the case of culture tanks exposed to sun.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="about-text">
+                        <p>
+                            Biofloc system was developed to improve the environmental control over the aquatic animal production. In aquaculture, the strong influential factors are the feed cost (accounting to 60% of the total production cost) and most limiting factor is the water/land availability. High stocking density and rearing of aquatic animals requires wastewater treatment. Biofloc system is a wastewater treatment which has gained vital importance as an approach in aquaculture.
+
+                            The principle of this technique is the generation of nitrogen cycle by maintaining higher C: N ratio through stimulating heterotrophic microbial growth, which assimilates the nitrogenous waste that can be exploited by the cultured spices as a feed. The biofloc technology is not only effective in treating the waste but also grants nutrition to the aquatic animal.
+
+                            The higher C : N is maintained through the addition of carbohydrate source (molasses) and the water quality is improved through the production of high quality single cell microbial protein. In such condition, dense microorganisms develop and function both as bioreactor controlling water quality and protein food source. Immobilization of toxic nitrogen species occurs more rapidly in bioflocs because the growth rate and microbial production per unit substrate of heterotrophs are ten-times greater than that of the autotrophic nitrifying bacteria. This technology is based on the principle of flocculation within the system.
+
+                            The biofloc technology has been implemented in shrimp farming due to its bottom dwelling habit and resistance to environmental changes. Studies have been conducted to assess the larval growth and reproductive performance of shrimps and Nile tilapia. An improved breeding performance was observed in shrimp reared in the biofloc system when compared to that of normal culture practices. Similarly improved larval growth performance was also noticed.
+                        </p>
+
+                        <h2 style="color:white;margin-top:50px;">Benifits of Biofloc Culture</h2>
+
+                        <ul class="withArrow" style="font-weight:bold;color:white">
+                            <li><span class="fa fa-angle-right"></span> Eco-friendly culture system.</li>
+                            <li><span class="fa fa-angle-right"></span> It reduces environmental impact</li>
+                            <li><span class="fa fa-angle-right"></span> Improves land and water use efficiency</li>
+                            <li><span class="fa fa-angle-right"></span> Limited or zero water exchange</li>
+                            <li><span class="fa fa-angle-right"></span> Higher productivity (It enhances survival rate, growth performance).</li>
+                            <li><span class="fa fa-angle-right"></span> Cost-effective feed production.</li>
+                            <li><span class="fa fa-angle-right"></span> Reduces water pollution and the risk of introduction and spread of pathogens</li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="about-image">
+                        <img src="~/chashi/img/bioflog.jpg" alt="About Images">
+                       
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-sm-6" style="margin-top:50px;">
+                    <div class="about-image">
+               
+                        <img src="~/chashi/img/bifloc.jpg" alt="About Images">
+                    </div>
+
+                </div>
+            </div>
+            </div>
+    </section>
+</div>

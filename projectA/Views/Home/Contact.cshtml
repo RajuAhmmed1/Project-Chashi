@@ -1,0 +1,111 @@
+﻿<div id="wrapper" class="">
+    <header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@Url.Action("Index")"><i style="color:red" class="fa fa-leaf" aria-hidden="true"></i>CHASHI</a>
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a class="waves-effect waves-dark" href="index.html">Home</a></li>
+                       
+                      
+
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                        @using Microsoft.AspNet.Identity
+                        @if (Request.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+
+
+
+                                <li class="dropdown">
+                                    <a style="text-decoration:none;color:white;padding-left:5px;" href="#" data-toggle="dropdown" class="dropdown-toggle waves-effect waves-dark"><i style="color:white;" class="fas fa-user-circle fa-lg"> </i> @User.Identity.Name.Split('@').First() <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="waves-effect waves-dark" href="@Url.Action("index","admin")">dashbord</a></li>
+
+                                        <li>
+                                            @Html.ActionLink("change password", "changepassword", "manage")
+                                        </li>
+                                        <li><a class="aa" style="text-decoration:none;" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                                    </ul>
+                                </li>
+
+
+                            }
+                        }
+                        else
+                        {
+
+
+                            <li><a class="waves-effect waves-dark" href="@Url.Action("login","account")"><i style="color:white;" class="fas fa-user-circle fa-lg"> </i> Login</a></li>
+
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="pageTitle">Contact Us</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="content">
+
+        <div class="container">
+            <div class="row">
+              
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p> </p>
+
+                    <!-- Form itself -->
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="input-field">
+                            <input type="text" name="name" class="form-control"
+                                   id="name" required
+                                   data-validation-required-message="Please enter your name" />
+                            <label for="name" class="">   Name </label>
+                            <p class="help-block"></p>
+
+                        </div>
+                        <div class="input-field">
+                            <input type="email" class="form-control" id="email" required
+                                   data-validation-required-message="Please enter your email" />
+                            <label for="name" class="">   Email </label>
+                        </div>
+
+                        <div class="input-field">
+                            <textarea rows="10" cols="100" required class="form-control materialize-textarea"
+                                      idation-required-message="Please enter your message" minlength="5"
+                                      data-validation-minlength-message="Min 5 characters"
+                                      maxlength="999" style="resize:none"></textarea>
+                            <label for="name" class="">   Message </label>
+                        </div>
+                        <div id="success"> </div> <!-- For success/fail messages -->
+                        <button type="submit" class="btn btn-primary waves-effect waves-dark pull-right">Send</button><br />
+                    </form>
+                </div>
+           
+            </div>
+        </div>
+
+    </section>
+    <footer>
+      
+</div>

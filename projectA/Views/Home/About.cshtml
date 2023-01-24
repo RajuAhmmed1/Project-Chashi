@@ -1,0 +1,88 @@
+﻿<div id="wrapper">
+    <header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@Url.Action("Index")"><i style="color:red" class="fa fa-leaf" aria-hidden="true"></i>CHASHI</a>
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a class="waves-effect waves-dark" href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="waves-effect waves-dark">About Us</a>
+                        </li>
+                        <li>@Html.ActionLink("Loign", "About", "Home")</li>
+                        <li><a class="waves-effect waves-dark" href="portfolio.html">Gallery</a></li>
+
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                        @using Microsoft.AspNet.Identity
+                        @if (Request.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+
+
+
+                                <li class="dropdown">
+                                    <a style="text-decoration:none;color:white;padding-left:5px;" href="#" data-toggle="dropdown" class="dropdown-toggle waves-effect waves-dark"><i style="color:white;" class="fas fa-user-circle fa-lg"> </i> @User.Identity.Name.Split('@').First() <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="waves-effect waves-dark" href="@Url.Action("index","admin")">dashbord</a></li>
+
+                                        <li>
+                                            @Html.ActionLink("change password", "changepassword", "manage")
+                                        </li>
+                                        <li><a class="aa" style="text-decoration:none;" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                                    </ul>
+                                </li>
+
+
+                            }
+                        }
+                        else
+                        {
+
+
+                            <li><a class="waves-effect waves-dark" href="@Url.Action("login","account")"><i style="color:white;" class="fas fa-user-circle fa-lg"> </i> Login</a></li>
+
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="page-content">
+        <div class="form-v5-content">
+            <form class="form-detail" action="login.php" method="post">
+
+                <h2 style="color:black">Login</h2>
+                <div class="form-row">
+                    <label for="full-name">username</label>
+                    <input type="text" name="username" id="full-name" class="input-text" placeholder="username" required>
+                    <i class="fas fa-user"></i>
+                </div>
+
+                <div class="form-row">
+                    <label for="password">password</label>
+                    <input type="password" name="password" id="password" class="input-text" placeholder="your password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+
+                <div class="form-row-last">
+                    <input type="submit" name="login_user" class="register" value="login">
+                </div>
+                <p style="display: inline-block;">
+                    <a href="register.php" style="display: inline;font-size: 16px; text-align: center;padding-top: 5px;">sign up</a>
+                </p>
+                <a href="enter_email.php" style="display: inline;float: right;font-size: 16px;">lost your password?</a>
+            </form>
+        </div>
+    </div>
+</div>

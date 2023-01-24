@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b0328fb1eec1425e93964876953d17bc" Name="Diagram1" >
+        <EntityTypeShape EntityType="ProjectBModel.pond" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ProjectBModel.AspNetRole" Width="1.5" PointX="3.375" PointY="2.5" />
+        <EntityTypeShape EntityType="ProjectBModel.AspNetUserClaim" Width="1.5" PointX="7.875" PointY="3.625" />
+        <EntityTypeShape EntityType="ProjectBModel.AspNetUserLogin" Width="1.5" PointX="7.875" PointY="1" />
+        <EntityTypeShape EntityType="ProjectBModel.AspNetUser" Width="1.5" PointX="5.625" PointY="1.375" />
+        <AssociationConnector Association="ProjectBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ProjectBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ProjectBModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="ProjectBModel.fish" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ProjectBModel.fish_set" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ProjectBModel.food" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="ProjectBModel.sell" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="ProjectBModel.fish_food" Width="1.5" PointX="3.375" PointY="9.75" />
+        <EntityTypeShape EntityType="ProjectBModel.additional_cost" Width="1.5" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="ProjectBModel.total_cost" Width="1.5" PointX="5.375" PointY="9.75" />
+        <EntityTypeShape EntityType="ProjectBModel.pond_detail" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ProjectBModel.result" Width="1.5" PointX="0.75" PointY="10.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

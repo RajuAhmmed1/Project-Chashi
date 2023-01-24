@@ -1,0 +1,67 @@
+﻿@model IEnumerable<projectA.Models.fish_set_viewmodel>
+
+@{
+    ViewBag.Title = "Pond Details";
+    Layout = "~/Views/Shared/Admin/adminlayout.cshtml";
+}
+
+
+<h2>@ViewBag.Title</h2>
+<table class="table table-bordered table-hover table-striped table-responsive" id="ponddetails">
+    <thead>
+        <tr>
+            <th>Serial No</th>
+            <th>
+                @Html.DisplayNameFor(model => model.pond_detailvm.pond_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pond_detailvm.total_set_fish)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pond_detailvm.total_sell_fish)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pond_detailvm.total_avail_fish)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            var i = 1;
+            foreach (var item in Model)
+            {
+
+            <tr>
+                <td>@i</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pondvm.pond_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pond_detailvm.total_set_fish)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pond_detailvm.total_sell_fish)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pond_detailvm.total_avail_fish)
+                </td>
+
+                <td>
+
+                    <a class="btn btn-icon-toggle btn-primary btn-xs" data-toggle="tooltip" data-placement="top" data-original-title="View" href="@Url.Action("Details", "pond_detail", new { id = @item.pond_detailvm.pond_details_id })"><i class="glyphicon  glyphicon-eye-open"></i></a>
+
+                </td>
+
+            </tr>
+                i = i + 1;
+
+            }
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script>$(document).ready(function () { $("#ponddetails").DataTable() })</script>
+}

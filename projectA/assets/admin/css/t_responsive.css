@@ -1,0 +1,202 @@
+﻿/*================ Normal desktop :992px.==================== */
+
+@media (min-width: 992px) and (max-width: 1169px) {
+}
+
+
+/*================ Tablet desktop :768px.==================*/
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .no_float {
+        float: none
+    }
+
+    .sms-title {
+        float: none
+    }
+
+    .modal-lg.sms_modal {
+        width: auto !important
+    }
+
+    .clearfix.mar {
+        margin-top: 65px;
+        margin-bottom: 10px;
+    }
+
+    .sms_select {
+        height: auto !important
+    }
+    .login-page-box {
+        width: 100%
+    }
+
+    .user-login-left img {
+        width: 135px;
+        height: 135px
+    }
+
+    .user-login-form h3 {
+        font-size: 28px;
+        margin-top: 20px
+    }
+
+    .note-popover .popover-content, .panel-heading.note-toolbar {
+        height: auto !important
+    }
+
+    .teacher-details-right {
+        margin-right: 0 !important
+    }
+
+    .teacher-details-box {
+        height: auto !important
+    }
+    .modal-lg.sms_modal {
+        width: auto !important
+    }
+
+}
+
+
+/*================== small mobile :320px. ===================*/
+
+@media (max-width: 767px) {
+
+    .no_float{
+        float:none
+    }
+    .sms-title{
+        float:none
+    }
+    .modal-lg.sms_modal{
+        width:auto !important
+    }
+    .clearfix.mar {
+        margin-top: 65px;
+        margin-bottom: 10px;
+    }
+    .datatable-mark td input{
+        width:100%;
+        padding:0
+    }
+    .sms_select {
+        height: auto !important
+    }
+    .login-page-box{
+        width:100%
+    }
+    .user-login-left img{
+        width:135px;
+        height:135px
+    }
+    .dataTables_length, .dataTables_filter {
+        width: 100%
+    }
+    .datatable-mark td input {
+        width: 100% !important;
+        padding: 0;
+        text-align: center;
+    }
+    .user-login-form h3 {
+        font-size: 28px;
+        margin-top: 20px
+    }
+    .note-popover .popover-content, .panel-heading.note-toolbar{
+        height:auto !important
+    }
+    .teacher-details-right{
+        margin-right:0 !important
+    }
+    .teacher-details-box{
+        height:auto !important
+    }
+    .smsheight{
+        height:140px !important
+    }
+    #message_text{
+        height:140px !important
+    }
+    .row.mobile-markinput{
+        display:block
+    }
+    .row.print-table.print-table{
+        display:none
+    }
+}
+
+
+/* ======================Large Mobile :480px.================== */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+    .no_float {
+        float: none
+    }
+
+    .sms-title {
+        float: none
+    }
+
+    .modal-lg.sms_modal {
+        width: auto !important
+    }
+
+    .clearfix.mar {
+        margin-top: 65px;
+        margin-bottom: 10px;
+    }
+
+    .sms_select {
+        height: auto !important
+    }
+
+    .login-page-box {
+        width: 100%
+    }
+
+    .user-login-left img {
+        width: 135px;
+        height: 135px
+    }
+
+    .user-login-form h3 {
+        font-size: 28px;
+        margin-top: 20px
+    }
+
+    .note-popover .popover-content, .panel-heading.note-toolbar {
+        height: auto !important
+    }
+    .dataTables_length, .dataTables_filter {
+        width: 100%
+    }
+
+    .datatable-mark td input {
+        width: 100% !important;
+        padding: 0;
+        text-align: center;
+    }
+    .teacher-details-right {
+        margin-right: 0 !important
+    }
+
+    .teacher-details-box {
+        height: auto !important
+    }
+    .smsheight {
+        height: 140px !important
+    }
+
+    #message_text {
+        height: 140px !important
+    }
+    .row.mobile-markinput {
+        display: block
+    }
+
+    .row.print-table.print-table {
+        display: none
+    }
+}

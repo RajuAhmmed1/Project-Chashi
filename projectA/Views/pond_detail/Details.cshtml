@@ -1,0 +1,105 @@
+﻿@model projectA.Models.fish_set_viewmodel
+
+@{
+    ViewBag.Title = "Pond Details";
+   Layout = "~/Views/Shared/Admin/adminlayout.cshtml";
+}
+
+@*<h2>@ViewBag.Title</h2>*@
+
+<div>
+    <h4 style="text-align:center;background-color:darkcyan;color:white;margin-top:15px;height:43px;line-height:12px">Set Fish</h4>
+    @*<hr />*@
+    <table class="table table-bordered table-hover table-striped table-responsive" id="PondDetails">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.sfdvm.sfish_name)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.sfdvm.sfish_quantity)
+                </th>
+                @*<th></th>*@
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in ViewBag.set_fish)
+            {
+                <tr>
+
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.totalfish)
+                        </td>*@
+
+                    <td>
+                        @item.fishvm.fish_name
+                    </td>
+                    <td>
+                        @item.sfdvm.sfish_quantity
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div>
+
+    <hr />
+    <h4 style=" text-align: center;
+        margin-top: 15px;
+        background-color: darkcyan;
+        color: white;
+        height:30px;
+        line-height:30px;
+">
+        Sell Fish
+    </h4>
+    <table class="table table-bordered table-hover table-striped table-responsive" id="PondDetail">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.slfdvm.sfish_name)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.slfdvm.sfish_quantity)
+                </th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in ViewBag.sell_fish)
+            {
+                <tr>
+
+                    <td>
+                        @item.fishvm.fish_name
+                    </td>
+
+                    <td>
+                        @item.slfdvm.sfish_quantity
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            $("#PondDetails").DataTable();
+            $("#PondDetail").DataTable();
+
+        });
+    </script>
+}
